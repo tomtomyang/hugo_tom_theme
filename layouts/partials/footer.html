@@ -1,0 +1,10 @@
+{{ $pangu := resources.Get "js/pangu.js" }}
+{{ $global := resources.Get "js/global.js" }}
+{{ $theme := resources.Get "js/theme.js" }}
+{{ $search := resources.Get "js/search.js" }}
+{{ $single := resources.Get "js/single.js" }}
+{{ $pwa := resources.Get "js/pwa.js" }}
+
+{{ $js := slice $pangu $global $theme $search $single $pwa | resources.Concat "js/util.js" }}
+{{ $secureJS := $js | resources.Minify }}
+<script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity=""></script>

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="main">
+  <!-- 左侧菜单 -->
+  {{- partial "components/sidebar.html" . -}}
+  <div class="container">
+  <ul class="list animated fadeInDown">
+    <div class="list-title">{{ .Title }}</div>
+    <div class="friend-link-list">
+      {{.Content}}
+    </div>
+  </ul>
+  </div>
+  
+</div>
+{{ end }}

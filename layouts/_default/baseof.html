@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{- site.Language.Lang -}}" data-theme="light">
+{{- partial "header.html" . -}}
+
+<body>
+    {{- block "main" . }}{{- end }}
+    {{- if .Site.Params.algolia.enable -}}
+    <div class="cover" id="cover">
+        {{ partial "components/search.html" . }}
+    </div>
+    {{- end }}
+</body>
+{{- partial "footer.html" . -}}
+
+</html>

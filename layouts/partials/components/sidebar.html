@@ -1,0 +1,30 @@
+<div class="sidebar sub-container">
+	<div class="title animated fadeInDown">
+		<img id="switch_btn" class="title-img" src="{{ .Site.Params.profilePicture | absURL }}" alt="profile picture">
+		<!-- <a class="title-txt" href="/">{{ .Site.Params.Title }}</a> -->
+	</div>
+	<div class="link">
+		{{ range $item := .Site.Params.socialIcons }}
+		<div class="link-item">
+			<a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}">
+				<i class="iconfont {{ $item.icon }} link-icon"></i>
+			</a>
+		</div>
+		{{ end }}
+	</div>
+	<div class="nav">
+		{{ $url := .RelPermalink }}
+		{{ range .Site.Menus.main }}
+		{{ $active := eq $url .URL }}
+		<div class="nav-item">
+			<a {{if $active }}class="current" {{end}} href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+		</div>
+		{{ end }}
+		<div class="nav-item">
+			<a id="search_btn" href="javascript:void(0)">搜索</a>
+		</div>
+	</div>
+	<div class="footer">
+		<div>&copy; {{ .Site.Params.auther }} {{ .Site.Params.since }}-{{ now.Format "2006"}}</div>
+	</div>
+</div>

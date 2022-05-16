@@ -1,0 +1,30 @@
+<ul class="menu">
+    <li class="menu-item">
+        <i class="iconfont icon-top item-btn" id="back_top_btn"></i>
+    </li>
+    <li class="menu-item">
+        <a href="/" id="back-btn">
+            <i class="iconfont icon-home item-btn"></i>
+        </a>
+    </li>
+    <li class="menu-item">
+        <i class="iconfont icon-switch item-btn" id="switch_btn"></i>
+    </li>
+    <li class="menu-item">
+        <i class="iconfont icon-search item-btn" id="search_btn"></i>
+    </li>
+    <li class="menu-item">
+        {{ with .PrevInSection }}
+        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
+            <i class="iconfont icon-left item-btn"></i>
+            {{ end }}
+        </a>
+    </li>
+    <li class="menu-item">
+        {{ with .NextInSection }}
+        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
+            <i class="iconfont icon-right item-btn"></i>
+            {{ end }}
+        </a>
+    </li>
+</ul>

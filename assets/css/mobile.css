@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 1000px) {
+  .main {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .main .container {
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .main .sub-container {
+    width: 100%;
+  }
+
+  /* 左侧菜单 */
+  .sidebar {
+    padding: 40px 0;
+  }
+
+  .sidebar .title .title-txt {
+    margin: 15px 0;
+  }
+
+  .sidebar .nav {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+  }
+
+  .sidebar .footer {
+    display: none;
+  }
+
+  /* 单个文章样式 */
+
+  .single-post {
+    padding: 0;
+    width: 100%;
+  }
+
+  .single-post .post {
+    width: 95%;
+  }
+
+  .single-post .post .header .info span {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .post-list .list-item {
+    padding: 20px;
+  }
+
+  .post-list .list-item .item-title {
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+
+  /* toc样式 */
+
+  .toc {
+    display: none;
+  }
+
+  /* menu样式 */
+
+  .menu {
+    display: none;
+  }
+
+  /* 归档样式 */
+
+  .list {
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+    padding-inline-start: 20px;
+    padding-bottom: 40px;
+  }
+
+  /* 搜索样式 */
+
+  .cover {
+    justify-content: flex-start !important;
+  }
+
+  .search-container {
+    padding: 10px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .algolia-autocomplete .search-input {
+    width: 100% !important;
+  }
+
+  .algolia-autocomplete .ds-dropdown-menu {
+    width: 100% !important;
+  }
+
+  .algolia-autocomplete .ds-dropdown-menu .ds-cursor {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+  }
+}

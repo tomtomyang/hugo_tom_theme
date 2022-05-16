@@ -1,0 +1,5 @@
+{{ if .IsNamedParams }}
+<a class="links-item" target="_blank" href={{ .Get "url" | safeURL }} title={{ .Get "name" }}>
+    <span>{{ .Get "name" }}</span>
+</a>
+{{ end }}

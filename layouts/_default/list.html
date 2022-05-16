@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="main">
+  <!-- 左侧菜单 -->
+  {{- partial "components/sidebar.html" . -}}
+  <div class="container">
+    <ul class="list animated fadeInDown">
+      {{ range .Data.Pages.GroupByDate "2006" }}
+      <div class="list-title">{{ .Key }}</div>
+      {{ range .Pages.GroupByDate "1月"}}
+      <div class="sub-list-title">{{ .Key }}</div>
+      <ul class="sub-list">
+        {{ range .Pages }}
+        <li class="list-item">
+          <span class="item-date">{{.Date.Format "2006-01-02" }}</span>
+          <a class="item-link" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+      {{ end }}
+    </ul>
+
+  </div>
+</div>
+{{ end }}

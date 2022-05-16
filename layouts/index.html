@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="main">
+  <!-- 左侧菜单 -->
+  {{- partial "components/sidebar.html" . -}}
+  <div class="container">
+    <div class="post-list">
+      {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+      {{ range $paginator.Pages }}
+
+      <div class="list-item">
+        <div class="animated fadeInDown">
+          {{ with .Params.Categories }}{{ partial "components/categorie.html" . }}{{ end }}
+          <a class="item-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+        <!-- <div class="item-content">
+          <p>{{ .Summary }}</p>
+        </div> -->
+        <div class="item-info animated fadeInDown">
+          <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+          {{ with .Params.Tags }}{{ partial "components/tag.html" . }}{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <div class="pagination">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+</div>
+{{ end }}
