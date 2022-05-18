@@ -15,14 +15,14 @@
     </li>
     <li class="menu-item">
         {{ with .PrevInSection }}
-        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
+        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .File.BaseFileName }}">
             <i class="iconfont icon-left item-btn"></i>
             {{ end }}
         </a>
     </li>
     <li class="menu-item">
         {{ with .NextInSection }}
-        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
+        <a class="" href="{{ .RelPermalink }}" data-tooltip="{{ .File.BaseFileName }}">
             <i class="iconfont icon-right item-btn"></i>
             {{ end }}
         </a>

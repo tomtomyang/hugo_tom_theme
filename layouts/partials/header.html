@@ -2,35 +2,38 @@
   <meta name="google-site-verification" content="kw1N-Xm6qEr1c9PGuRd0U_T6DXkw_EHsLyz5LpuDDv8" />
   <meta name="msvalidate.01" content="EE98205D30806C22C519683EFC53E9BA" />
   <meta name="baidu-site-verification" content="iPC3wUcQLL" />
-  <title>{{.Site.Params.author}}{{ with .Title }} {{ . }}{{ end }}</title>
+  <title>{{ if .Title }} {{- .Title -}} {{ else }} {{- .File.BaseFileName -}} {{ end }}</title>
   <meta charset="utf-8" />
   {{- hugo.Generator -}}
   <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <meta name="description" itemprop="description"
-    content="{{if .Page.Params.description}} {{.Page.Params.description}} {{else}} {{.Site.Params.description}} {{end}}" />
+    content="{{ if .Page.Params.description }} {{- .Page.Params.description -}} {{ else }} {{- .Site.Params.description -}} {{ end }}" />
   <meta name="keywords" itemprop="keywords"
-    content="{{if .Page.Params.keywords}} {{.Page.Params.keywords}} {{else}} {{ .Site.Params.keywords }} {{end}}" />
-  <base href="{{ .Site.BaseURL }}" />
+    content="{{ if .Page.Params.tags }} {{- .Page.Params.tags -}} {{ else }} {{- .Site.Params.keywords -}} {{ end }}" />
+  <base href="{{- .Site.BaseURL -}}" />
+  <link rel="canonical" href="{{- .Permalink -}}" />
+
+  <!-- {{ $remoteFont := resources.GetRemote ("https://fonts.font.im/css?family=Noto+Serif+SC&display=swap" | absURL) }}
+  <link rel="stylesheet" href="{{- $remoteFont.RelPermalink -}}"> -->
 
   <!-- font -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload prefetch" as="style" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" media="print"
+  <link rel="preconnect" href="https://fonts.gstatic.font.im" crossorigin />
+  <link rel="preload prefetch" as="style" href="https://fonts.font.im/css?family=Noto+Serif+SC&display=swap" />
+  <link rel="stylesheet" href="https://fonts.font.im/css?family=Noto+Serif+SC&display=swap" media="print"
     onload="this.media='all'">
 
   <!-- icon -->
-  <link rel="shortcut icon" href="{{ .Site.Params.favicon | absURL }}/favicon.ico" type="image/x-icon" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.favicon | absURL }}favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon | absURL }}favicon-16x16.png" />
-  <link rel="mask-icon" href="{{ .Site.Params.favicon | absURL }}safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.favicon | absURL }}apple-touch-icon.png">
+  <link rel="shortcut icon" href="{{- .Site.Params.favicon | absURL -}}/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{- .Site.Params.favicon | absURL -}}favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{- .Site.Params.favicon | absURL -}}favicon-16x16.png" />
+  <link rel="mask-icon" href="{{- .Site.Params.favicon | absURL -}}safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{- .Site.Params.favicon | absURL -}}apple-touch-icon.png">
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="msapplication-TileImage" content="{{ .Site.Params.favicon | absURL }}mstile-144x144.png">
   <link rel="manifest" href="/manifest.json">
 
   <!-- style -->
-  <link rel="canonical" href="{{ .Permalink }}" />
-  <link rel="stylesheet" type="text/css" href="{{ .Site.Params.iconfontCss }}" />
+  <link rel="stylesheet" type="text/css" href="{{- .Site.Params.iconfontCss -}}" />
   {{ $normalize := resources.Get "css/normalize.css" }}
   {{ $animation := resources.Get "css/animation.css" }}
   {{ $theme := resources.Get "css/theme.css" }}
@@ -39,11 +42,7 @@
   {{ $markdown := resources.Get "css/markdown.css" }}
   {{ $search := resources.Get "css/search.css" }}
   {{ $css := slice $normalize $animation $theme $global $mobile $markdown $search | resources.Concat "css/style.css" }}
-  {{ $secureCss := $css | resources.Minify }}
-  <link rel="stylesheet" href="{{ $secureCss.Permalink }}" integrity="" type="text/css" />
-
-  <!-- search -->
-  {{ $docsearch := resources.Get "js/docsearch.js" }}
-  {{ $docJS := $docsearch | resources.Minify }}
-  <script type="text/javascript" src="{{ $docJS.Permalink }}" integrity=""></script>
+  {{ $secureCss := $css | resources.Minify | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{- $secureCss.Permalink -}}" integrity="{{- $secureCss.Data.Integrity -}}"
+    type="text/css" />
 </head>

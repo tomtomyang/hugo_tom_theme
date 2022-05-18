@@ -1,3 +1,5 @@
+import docsearch from 'docsearch'
+
 ;(function () {
   function changeSearchShow(e) {
     if (
@@ -41,7 +43,7 @@
         }
       }
 
-      docsearch({
+      !!docsearch && docsearch({
         apiKey: 'f7f9aeb8485880cfd0e747129ea4ddf9',
         indexName: 'blogsearch',
         appId: 'SGIZDO9IMB',

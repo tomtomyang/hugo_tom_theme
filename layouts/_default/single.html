@@ -7,30 +7,31 @@
   <div class="single-post container">
     <div class="post animated fadeInDown">
       <div class="header">
-        <span class="title">{{ .Title }}</span>
+        <span class="title">{{- .File.BaseFileName -}}</span>
         {{ if eq .Type "post"}}
-        <div class="info">
-          <span>📅 {{ .Date.Format "2006-01-02" }}</span>
-          <span>👦 {{ .Params.Author }}</span>
-          <span>📖 {{ $.WordCount }}字</span>
-          <span>⏱ {{ $.ReadingTime }}分钟</span>
-        </div>
+          <div class="info">
+            <span>发布于 {{- .Date.Format "2006-01-02" -}}</span>
+            <span>更新于 {{- .Lastmod.Format "2006-01-02" -}}</span>
+            <span>共{{- .WordCount -}}字</span>
+            <span>阅读{{- .ReadingTime -}}分钟</span>
+
+          </div>
         {{ end }}
       </div>
       <div class="content markdown-body">
         {{ .Content }}
       </div>
       <div class="footer">
-        {{ with .Page.Params.Categories }}{{ partial "components/categorie.html" . }}{{ end }}
-        {{ with .Page.Params.Tags }}{{ partial "components/tag.html" . }}{{ end }}
+        {{ with .Page.Params.Categories }}{{- partial "components/categorie.html" . -}}{{ end }}
+        {{ with .Page.Params.Tags }}{{- partial "components/tag.html" . -}}{{ end }}
       </div>
 
-      {{- if .Site.Params.valine.enable -}}
-      {{ partial "components/valine.html" . }}
-      {{- end }}
+      {{ if .Site.Params.valine.enable }}
+      {{- partial "components/valine.html" . -}}
+      {{ end }}
     </div>
 
-    {{ partial "components/menu.html" . }}
+    {{- partial "components/menu.html" . -}}
 
   </div>
 </div>

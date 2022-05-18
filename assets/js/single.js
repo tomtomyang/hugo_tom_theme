@@ -1,3 +1,5 @@
+import { throttle } from 'function'
+
 ;(function () {
   function scrollTo(targetHeight) {
     if (!!singlePost && !!header && !!content && !!footer) {

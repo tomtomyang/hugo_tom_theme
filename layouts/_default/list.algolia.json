@@ -3,7 +3,7 @@
 {{/* content/posts或content/post目录下的博文才生成索引 */}}
 {{- range where (where .Site.Pages "Type" "in" (slice "posts" "post")) "IsPage" true -}}
   {{- if and (not .Draft) (not .Params.private) -}}
-    {{- $.Scratch.Add "index" (dict "objectID" .File.UniqueID "url" .Permalink "content" (.Summary | plainify) "tags" .Params.Tags "lvl0" .Title "lvl1" .Params.Categories "lvl2" "摘要") -}}
+    {{- $.Scratch.Add "index" (dict "objectID" .File.UniqueID "url" .Permalink "content" (.Summary | plainify) "tags" .Params.Tags "lvl0" .File.BaseFileName "lvl1" .Params.Categories "lvl2" "摘要") -}}
   {{- end -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}

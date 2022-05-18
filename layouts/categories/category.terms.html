@@ -22,8 +22,8 @@
           <span class="item-date">
             {{.Date.Format "2006-01-02" }}
           </span>
-          <a class="item-link" href="{{ .Permalink }}" title="{{ .Title }}">
-            {{ .Title }}
+          <a class="item-link" href="{{ .Permalink }}" title="{{ .File.BaseFileName }}">
+            {{ .File.BaseFileName }}
           </a>
         </li>
         {{ end }}

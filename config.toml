@@ -1,0 +1,129 @@
+languageCode = "zh-cn"
+DefaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+title = ""
+theme = "tom_theme"
+baseURL = ""
+summaryLength = 100
+enableEmoji = true
+enableGitInfo = true
+paginate = 10
+canonifyurls = true
+googleAnalytics = ""
+
+[outputs]
+  home = ["HTML", "RSS", "Algolia"]
+  
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+
+[frontmatter]
+  lastmod = [ ':fileModTime', 'lastmod', ':default']
+
+pygmentsUseClasses = true
+[markup]
+  [markup.goldmark]
+    # [markup.goldmark.extensions]
+    #   definitionList = true
+    #   footnote = true
+    #   linkify = true
+    #   strikethrough = true
+    #   table = true
+    #   taskList = true
+    #   typographer = true
+    # [markup.goldmark.parser]
+    #   autoHeadingID = true
+    #   autoHeadingIDType = "github"
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = true
+    style = "dracula"
+    tabWidth = 4
+
+[permalinks]
+  #post = "/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params]
+auther = ""
+since = ""
+description = ""
+profilePicture = ""
+keywords = [""]
+favicon = ""
+iconfontCss = ""
+customCss = []
+mainSections = ["post"]
+
+  [params.math]
+  enable = false
+  use = "mathjax"
+
+  [[params.socialIcons]]
+  icon = ""
+  title = ""
+  url = ""
+
+  [params.algolia]
+  enable = false
+  appId = ""
+  indexName = ""
+  searchOnlyKey = ""
+
+  [params.valine]
+  enable = false
+  appId = ""
+  appKey = ""
+  notify = true 
+  verify = false 
+  avatar = "mm" 
+  placeholder = "说点什么吧..."
+  visitor = true
+
+[menu]
+  [[menu.main]]
+  name = "首页"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "归档"
+  weight = 200
+  identifier = "posts"
+  url = "/post/"
+
+  [[menu.main]]
+  name = "分类"
+  weight = 300
+  identifier = "categories"
+  url = "/categories/"
+
+  [[menu.main]]
+  name = "标签"
+  weight = 400
+  identifier = "tags"
+  url = "/tags/"
+
+  [[menu.main]]
+  name = "链接"
+  weight = 500
+  identifier = "links"
+  url = "/links/"
+
+

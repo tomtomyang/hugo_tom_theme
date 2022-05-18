@@ -5,6 +5,7 @@ body {
   flex-direction: row;
   overflow-x: hidden;
   font-family: 'Noto Serif SC', Microsoft Yahei, PingFang SC, Arial, Verdana, sans-serif!important;
+  -webkit-text-stroke: 0.1px;
 }
 
 /* 滚动条样式 */
@@ -366,6 +367,7 @@ body {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+  padding-inline-end: 40px;
 }
 
 .list .list-title {

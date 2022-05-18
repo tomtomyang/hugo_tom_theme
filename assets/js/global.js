@@ -1,20 +1,7 @@
-
-function throttle(fn, wait) {
-  var timer = null
-  return function () {
-    var context = this
-    var args = arguments
-    if (!timer) {
-      timer = setTimeout(function () {
-        fn.apply(context, args)
-        timer = null
-      }, wait)
-    }
-  }
-}
+import pangu from 'pangu'
 
 document.addEventListener('DOMContentLoaded', () => {
-  !!pangu && pangu.spacingElementByClassName('item-title');
+  !!pangu && pangu.spacingElementByClassName('list-item');
   !!pangu && pangu.spacingElementByClassName('toc');
   !!pangu && pangu.spacingElementByClassName('single-post');
 });
