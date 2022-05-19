@@ -16,7 +16,7 @@
 		{{ range .Site.Menus.main }}
 		{{ $active := eq $url .URL }}
 		<div class="nav-item">
-			<a {{ if $active }}class="current" {{ end }} href="{{- .URL -}}" title="{{- .Title -}}">{{- .Name -}}</a>
+			<a {{ if $active }}class="current" {{ end }} href="{{- .URL -}}">{{- .Name -}}</a>
 		</div>
 		{{ end }}
 		<div class="nav-item">

@@ -4,7 +4,8 @@ body {
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
-  font-family: 'Noto Serif SC', Microsoft Yahei, PingFang SC, Arial, Verdana, sans-serif!important;
+  font-family: 'Noto Serif SC', Microsoft Yahei, PingFang SC, Arial, Verdana,
+    sans-serif !important;
   -webkit-text-stroke: 0.1px;
 }
 
@@ -245,11 +246,25 @@ body {
 }
 
 .single-post .post .header .info {
+  display: flex;
+  align-items: center;
   margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
   font-size: 15px;
+  background-color: var(--sidebar-bg-color);
 }
 
-.single-post .post .header .info span {
+.single-post .post .header .info .info-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.single-post .post .header .info span,
+a {
   display: inline-block;
   margin-right: 10px;
 }

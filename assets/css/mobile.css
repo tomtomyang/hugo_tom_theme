@@ -49,9 +49,17 @@
     width: 95%;
   }
 
-  .single-post .post .header .info span {
-    display: block;
+  .single-post .post .header .info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .single-post .post .header .info span,a {
     margin: 10px 0;
+  }
+
+  .single-post .post .header .info .info-img {
+    display: none;
   }
 
   .post-list .list-item {
