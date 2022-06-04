@@ -123,7 +123,6 @@ input[type='search']::-ms-clear {
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-cursor {
-  /* background-color: var(--sidebar-bg-color); */
   -webkit-transform: scale(1.03);
   -ms-transform: scale(1.03);
   -o-transform: scale(1.03);
