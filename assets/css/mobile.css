@@ -71,6 +71,10 @@
     letter-spacing: 0;
   }
 
+  .markdown-body img {
+    max-width: 100%!important;
+  }
+
   /* toc样式 */
 
   .toc {

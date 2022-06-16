@@ -10,7 +10,7 @@
         <span class="title">{{- .File.BaseFileName -}}</span>
         {{ if eq .Type "post"}}
           <div class="info">
-	        	<img id="switch_btn" class="info-img" src="{{ .Site.Params.profilePicture | absURL }}" alt="profile picture">
+	        	<!-- <img id="switch_btn" class="info-img" src="{{ .Site.Params.profilePicture | absURL }}" alt="profile picture"> -->
             <a href="/">{{ .Site.Params.auther }}</a>
             <span>发布于 {{- .Date.Format "2006-01-02" -}}</span>
             <span>更新于 {{- .Lastmod.Format "2006-01-02" -}}</span>

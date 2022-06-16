@@ -109,10 +109,6 @@ code {
   margin: 0.67em 0;
 }
 
-.markdown-body img {
-  border-style: none;
-}
-
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre {
@@ -761,7 +757,9 @@ code {
 }
 
 .markdown-body img {
-  max-width: 100%;
+  border-style: none;
+  max-width: 90%;
+  max-height: 400px;
   box-sizing: initial;
   border-radius: 5px;
   font-size: 12px;
